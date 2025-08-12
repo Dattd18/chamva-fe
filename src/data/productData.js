@@ -25,7 +25,7 @@ const productData = [
         description: "Cuộn chỉ thổ cẩm Chăm màu xanh trời, dệt thủ công tinh xảo, phù hợp may vá hoặc trang trí.",
         price: 150000,
         stock: 20,
-        images: [cuonchi1],
+        images: [cuonchi1, cuonchi7],
         isActive: true
     },
     {
@@ -35,7 +35,7 @@ const productData = [
         description: "Cuộn chỉ đỏ rực như ngọn lửa, tượng trưng sức sống và nhiệt huyết của người Chăm.",
         price: 150000,
         stock: 15,
-        images: [cuonchi2],
+        images: [cuonchi2, cuonchi7],
         isActive: true
     },
     {

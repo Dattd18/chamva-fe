@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -8,112 +8,91 @@ import {
 } from "lucide-react";
 import Header from "../component/header";
 import Footer from "../component/footer";
-import Bg from "../assets/bgAbout.png";
-import Bg1 from "../assets/g1.png";
-import Bg2 from "../assets/IMG_8279.jpg";
-import Bg3 from "../assets/IMG_8285.jpg";
-import Bg4 from "../assets/IMG_8333.jpg";
-import Bg5 from "../assets/IMG_8357.jpg";
-import logo from "../assets/logo.png";
+import bg6 from "../assets/IMG_8357.jpg";
+import logo from "../assets/IMG_8285.jpg";
+import bg4 from "../assets/IMG_8279.jpg";
+import bg5 from "../assets/khan5.jpg";
+import bg7 from "../assets/bg5.png";
+import bg8 from "../assets/bg7.jpg";
 
 const About = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Sample images for slideshow (using placeholder images)
-  const slideImages = [Bg2, Bg3, Bg4, Bg5];
-
-  // Auto-advance slideshow
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideImages.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [slideImages.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slideImages.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + slideImages.length) % slideImages.length
-    );
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
   return (
     <div className="min-h-screen bg-light-500">
       <Header />
 
       {/* Hero Section with Thread Display */}
-      <section
-        className="relative h-[650px] bg-cover bg-center bg-no-repeat mt-6"
-        style={{ backgroundImage: `url(${Bg})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <img
-            src={Bg1}
-            className="rounded-2xl mx-auto mt-[300px] ml-10 w-64 h-80 object-cover"
-          />
+      <section className="py-16">
+        <div
+          className="w-full mx-auto px-4 h-[700px]"
+          style={{
+            backgroundImage: `url(${bg4})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
+            <div></div>
+            {/* Right side - Content */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8">
+              <h2 className="text-3xl font-light text-gray-800 mb-6">
+                VỀ CHÚNG TÔI
+              </h2>
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  Ở làng Chăm ven sông An Giang, dệt thổ cẩm từng là nghề của
+                  hầu hết các gia đình. Tiếng khung cửi, sắc chỉ rực rỡ và những
+                  hoa văn cổ truyền là một phần nhịp sống. Nhưng theo thời gian,
+                  nghề dệt thưa dần. Cái khó, cái nhọc khiến nhiều người bỏ
+                  khung cửi.
+                </p>
+                <p>
+                  Cuối cùng, cả làng chỉ còn lại cơ sở của chú – người gắn bó
+                  với nghề hơn nửa đời. Đã có lúc chú muốn dừng, nhưng ký ức về
+                  ông bà, cha mẹ và truyền thống hơn 100 năm vẫn thôi thúc. Nghề
+                  này là máu thịt, là niềm tự hào, không thể để mất. Chú bắt tay
+                  phục dựng cơ sở, khôi phục từng hoa văn, giữ nguyên kỹ thuật
+                  xưa nhưng cải tiến để phù hợp với thời nay. Không chỉ để bán
+                  vải, chú muốn nghề sống lại, để con cháu sau này còn biết, còn
+                  tiếp nối.
+                </p>
+                <p>
+                  Chamva được hình thành từ ý chí đó – tôn vinh tinh hoa dệt thổ
+                  cẩm Chăm, gìn giữ di sản, và đưa nó bước vào đời sống hiện
+                  đại. Mỗi sản phẩm là kết nối giữa bàn tay, ký ức và tương lai
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-20 " style={{ backgroundColor: "#545A9D" }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Story Text */}
             <div className="order-2 lg:order-1">
               <div className="mb-6">
-                <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-4">
-                  OUR STORY
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                  HÀNH TRÌNH CỦA CHÚNG TÔI
                 </h2>
                 <div className="w-20 h-1 bg-amber-600"></div>
               </div>
 
-              <div className="space-y-6 text-gray-700 leading-relaxed">
+              <div className="space-y-6 text-white leading-relaxed">
                 <p className="text-lg">
-                  <strong>Thổ Cẩm Chăm An Giang</strong> được hình thành từ lâu
-                  đời, bắt nguồn từ bàn tay khéo léo của những người phụ nữ Chăm
-                  nơi miền Tây sông nước. Không chỉ đơn thuần là một nghề truyền
-                  thống để mưu sinh, thổ cẩm Chăm còn chứa đựng trong đó tình
-                  yêu quê hương, niềm tự hào văn hóa và bản sắc dân tộc được gìn
-                  giữ qua nhiều thế hệ
-                </p>
-
-                <p>
-                  Các sản phẩm thổ cẩm Chăm mang màu sắc rực rỡ, họa tiết tinh
-                  xảo và mang đậm hơi thở của đời sống cộng đồng Chăm. Chúng tôi
-                  tự hào giới thiệu đến khách hàng những sản phẩm thổ cẩm được
-                  dệt hoàn toàn thủ công, mỗi đường kim mũi chỉ đều ẩn chứa tâm
-                  huyết và câu chuyện của người làm ra nó.
-                </p>
-
-                <p>
-                  Hiện tại, chúng tôi có xưởng sản xuất tại An Giang và đã phân
-                  phối sản phẩm đến nhiều tỉnh thành trong cả nước. Trong thời
-                  gian tới, chúng tôi đặt mục tiêu đưa thổ cẩm Chăm An Giang ra
-                  thị trường quốc tế, để bạn bè năm châu biết đến vẻ đẹp tinh tế
-                  và giá trị văn hóa đặc sắc của Việt Nam.
+                  Từ tiếng khung cửi bên bờ sông đến xưởng dệt hôm nay, Chamva
+                  được dựng lại bằng ký ức và bàn tay của những người thợ Chăm.
+                  Mỗi hoa văn là một lát cắt di sản – được giữ nguyên tinh thần
+                  xưa, nhưng trình bày bằng ngôn ngữ của hiện tại.
                 </p>
               </div>
             </div>
-
             {/* Logo/Image */}
             <div className="order-1 lg:order-2 flex justify-center">
               <div className="relative">
-                <div className="w-80 h-80 bg-amber-50 rounded-full flex items-center justify-center shadow-2xl">
-                  <div className="text-center">
-                    <img
-                      src={logo}
-                      className="w-40 h-40 object-cover rounded-none mb-4"
-                    />
-                    <p className="text-lg font-semibold text-amber-900">
-                      Chamva.com.vn
-                    </p>
-                  </div>
-                </div>
+                <img
+                  src={logo}
+                  className="w-full h-full object-cover rounded-none ml-20"
+                />
                 <div className="absolute -top-4 -right-4 w-20 h-20 bg-amber-600 rounded-full opacity-20 animate-pulse"></div>
                 <div
                   className="absolute -bottom-6 -left-6 w-16 h-16 bg-orange-400 rounded-full opacity-30 animate-pulse"
@@ -125,70 +104,193 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-10 bg-amber-50 mb-6">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold text-amber-900 mb-4">
-            AUTHENTIC CHAM BROCADE BASE
-          </h3>
-          <p className="text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
-            Sợi vải được nhuộm từ màu tự nhiên và dệt thủ công bởi các nghệ nhân
-            Chăm, lưu giữ trọn vẹn hồn cốt và tinh hoa của nghề dệt truyền
-            thống.
-          </p>
-
-          {/* Image Slideshow */}
-          <div className="relative max-w-4xl mx-auto">
-            <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              {slideImages.map((image, index) => (
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Logo/Image - Now first on desktop */}
+            <div className="order-1 lg:order-1 flex justify-center">
+              <div className="relative">
+                <img
+                  src={bg5}
+                  className="w-full h-full object-cover rounded-none mr-20"
+                />
+                <div className="absolute -top-4 -left-4 w-20 h-20 bg-amber-600 rounded-full opacity-20 animate-pulse"></div>
                 <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${
-                    index === currentSlide ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <img
-                    src={image}
-                    alt={`Coffee slide ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                </div>
-              ))}
+                  className="absolute -bottom-6 -right-6 w-16 h-16 bg-orange-400 rounded-full opacity-30 animate-pulse"
+                  style={{ animationDelay: "1s" }}
+                ></div>
+              </div>
             </div>
 
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-amber-900 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-            >
-              <ChevronLeft size={24} />
-            </button>
+            {/* Story Text - Now second on desktop */}
+            <div className="order-2 lg:order-2">
+              <div className="mb-6">
+                <h2
+                  className="text-4xl md:text-4xl font-bold text-white mb-4"
+                  style={{ color: "#545A9D" }}
+                >
+                  Sứ mệnh – Tầm nhìn – Giá trị
+                </h2>
+                <div className="w-20 h-1 bg-amber-600"></div>
+              </div>
 
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-amber-900 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-            >
-              <ChevronRight size={24} />
-            </button>
+              <div className="space-y-6 text-white leading-relaxed">
+                <p className="text-lg" style={{ color: "#545A9D" }}>
+                  <span className="font-bold">Sứ mệnh:</span> Gìn giữ và kể lại
+                  di sản dệt thổ cẩm Chăm bằng sản phẩm ứng dụng hằng ngày.
+                </p>
 
-            {/* Slide Indicators */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-              {slideImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "bg-white scale-125"
-                      : "bg-white/50 hover:bg-white/80"
-                  }`}
-                />
-              ))}
+                <p className="text-lg" style={{ color: "#545A9D" }}>
+                  <span className="font-bold">Tầm nhìn:</span> Trở thành nhịp
+                  nối giữa làng nghề và đời sống đương đại, để thổ cẩm Chăm hiện
+                  diện bền vững.
+                </p>
+
+                <p className="text-lg" style={{ color: "#545A9D" }}>
+                  <span className="font-bold">Giá trị:</span> Thủ công chân thật
+                  • Tôn trọng văn hóa • Minh bạch • Bền vững • Sáng tạo có trách
+                  nhiệm.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      {/* Footer */}
+      <section className="py-6">
+        <div className="max-w-7xl mx-auto px-4 h-[650px]">
+          <img
+            src={bg8}
+            className="w-full h-full object-cover rounded-lg mx-auto mb-4"
+          />
+        </div>
+      </section>
+      <section className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center">
+            {/* Header */}
+            <div className="mb-8">
+              <h2
+                className="text-4xl md:text-4xl font-bold mb-4"
+                style={{ color: "#545A9D" }}
+              >
+                HOẠ TIẾT A NGHÌN
+              </h2>
+              <div className="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+
+            {/* Content */}
+            <div className="max-w-3xl mx-auto">
+              <p
+                className="text-lg leading-relaxed"
+                style={{ color: "#545A9D" }}
+              >
+                Họa tiết A Nghìn – tinh hoa của nghề dệt Chăm – được ví như "vân
+                mây" trên nền vải. Cái tên A Nghìn bắt nguồn từ ý niệm rằng, để
+                tạo ra được hoa văn này, người thợ phải khéo léo và kiên nhẫn
+                đến mức "khó như lên trời". Mỗi đường nét đều đòi hỏi kỹ thuật
+                dệt ikat điêu luyện, nhuộm và canh sợi chính xác tuyệt đối để
+                khi kết hợp, hoa văn hiện ra mềm mại như mây bay. Không chỉ là
+                một mô-típ trang trí, A Nghìn còn là dấu ấn văn hoá, là câu
+                chuyện về sự tỉ mỉ, bền bỉ và niềm tự hào mà người Chăm gửi gắm
+                trong từng tấm vải.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-6">
+        <div className="max-w-7xl mx-auto px-4 h-[650px]">
+          <img
+            src={bg7}
+            className="w-full h-full object-cover rounded-lg mx-auto mb-4"
+          />
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section
+        className="py-16 bg-white"
+        style={{
+          backgroundImage: `url(${bg6})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white/90 backdrop-blur-sm rounded-lg p-8">
+            {/* Left side - Contact info */}
+            <div className="text-black pt-28">
+              <h3 className="text-3xl font-bold mb-8 text-center">
+                LIÊN HỆ CHÚNG TÔI
+              </h3>
+              <div className="text-center space-y-3 text-lg">
+                <p className="text-2xl font-bold">CHAMVA</p>
+                <p>Hotline: 0903 321 046</p>
+                <p>Web: chamva.com.vn</p>
+                <p>Fb: https://www.facebook.com/chamva/</p>
+                <p>Địa chỉ: Phúm Xoài - Châu Phong - An Giang</p>
+                <div className="pt-6">
+                  <p className="text-xl font-bold">GIỜ MỞ CỬA</p>
+                  <p className="text-lg">T2 - T7: Từ 8h - 18h</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right side - Contact form */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-lg p-8 border border-gray-300">
+              <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">
+                Ý KIẾN ĐÁNH GIÁ
+              </h3>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Tên
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    E-mail
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Tin nhắn
+                  </label>
+                  <textarea
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
+                  ></textarea>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Số điện thoại
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  />
+                </div>
+                <button
+                  onClick={() => alert("Cảm ơn bạn đã gửi tin nhắn!")}
+                  className="w-full bg-gray-600 text-white py-3 rounded-md font-medium hover:bg-gray-700 transition-colors mt-6"
+                >
+                  Gửi
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

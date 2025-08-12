@@ -1,125 +1,112 @@
-import React from "react";
+import React, { useState } from "react";
 import { Search, ShoppingCart, User } from "lucide-react";
-import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo1.png";
+import { useCart } from "../page/CartContext";
+
 export default function Header() {
+  const [activeNav, setActiveNav] = useState("home");
+  const [searchValue, setSearchValue] = useState("");
+  const { cartItems } = useCart();
+
+  const navItems = [
+    { id: "home", label: "TRANG CHỦ" },
+    { id: "products", label: "SẢN PHẨM" },
+    { id: "contact", label: "LIÊN HỆ" },
+    { id: "about", label: "VỀ CHÚNG TÔI" },
+  ];
+
   return (
-    <header className="w-full bg-gray-100">
-      <div className="w-full px-8 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center ml-20">
-            <Link to="/">
-              <img alt="logo" className="w-20 h-20 cursor-pointer" src={logo} />
-            </Link>
-          </div>
+    <header className="w-full bg-white shadow-lg relative z-50">
+      {/* Hàng trên */}
+      <div className="flex items-center justify-between px-8 py-6">
+        {/* Logo */}
+        <div className="flex items-center justify-center flex-1 ml-[650px]">
+          <Link to="/" className="flex items-center space-x-2">
+            <img src={logo} alt="Logo" className="w-24 h-24" />
+          </Link>
+        </div>
 
-          {/* Navigation Menu & Icons */}
-          <div className="flex items-center space-x-12">
-            {/* Navigation Menu */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/"
-                className="text-indigo-600 hover:text-indigo-800 font-medium text-xl transition-colors duration-200"
-              >
-                Home
-              </Link>
-              <Link
-                to="/shop"
-                className="text-indigo-600 hover:text-indigo-800 font-medium text-xl transition-colors duration-200"
-              >
-                Shop
-              </Link>
-              <Link
-                to="/about"
-                className="text-indigo-600 hover:text-indigo-800 font-medium text-xl transition-colors duration-200"
-              >
-                About
-              </Link>
-              <Link
-                to="/contact"
-                className="text-indigo-600 hover:text-indigo-800 font-medium text-xl transition-colors duration-200"
-              >
-                Contact
-              </Link>
-              <Link
-                to="/location"
-                className="text-indigo-600 hover:text-indigo-800 font-medium text-xl transition-colors duration-200"
-              >
-                Location
-              </Link>
-            </nav>
-
-            {/* Right Icons */}
-            <div className="flex items-center space-x-2">
-              <button className="p-2 text-indigo-600 hover:text-indigo-800 transition-colors duration-200">
-                <Search size={22} />
-              </button>
-              <button className="p-2 text-indigo-600 hover:text-indigo-800 transition-colors duration-200">
-                <ShoppingCart size={22} />
-              </button>
-              <button className="p-2 text-indigo-600 hover:text-indigo-800 transition-colors duration-200">
-                <User size={22} />
-              </button>
+        {/* Thanh tìm kiếm + Icons */}
+        <div className="flex items-center space-x-6">
+          {/* Ô tìm kiếm */}
+          <div className="relative group">
+            <div
+              className="flex items-center px-4 py-2 rounded-lg shadow-md transition-all duration-300 group-hover:shadow-lg"
+              style={{ backgroundColor: "#545A9D" }}
+            >
+              <Search
+                size={20}
+                className="text-white transition-transform duration-300 group-hover:scale-110"
+              />
+              <input
+                type="text"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                placeholder="Tìm kiếm sản phẩm..."
+                className="ml-3 bg-transparent outline-none text-white placeholder-white/80 w-48 h-8 text-sm"
+              />
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button className="p-2 text-indigo-600 hover:text-indigo-800">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+          {/* Icons */}
+          <div className="flex items-center space-x-3">
+            <Link
+              to="/cart"
+              className="p-3 rounded-full transition-all duration-300 hover:bg-indigo-50 hover:shadow-md transform hover:scale-110 relative group text-[#545A9D]"
+            >
+              <ShoppingCart size={22} />
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {cartItems.length}
+              </span>
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Giỏ hàng
+              </div>
+            </Link>
+
+            <Link
+              to="/login"
+              className="inline-block p-3 rounded-full transition-all duration-300 hover:bg-indigo-50 hover:shadow-md transform hover:scale-110 relative group text-[#545A9D]"
+            >
+              <User size={22} />
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Tài khoản
+              </div>
+            </Link>
+          </div>
+
+          {/* Ngôn ngữ */}
+          <div className="flex items-center space-x-3 text-sm font-medium">
+            <button className="px-3 py-1 rounded-md transition-all duration-300 border-2 border-indigo-600 bg-indigo-600 text-white">
+              Vi
+            </button>
+            <button className="px-3 py-1 rounded-md transition-all duration-300 border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white">
+              En
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      <div className="md:hidden border-t border-gray-100">
-        <div className="px-4 py-2 space-y-1 bg-white">
-          <a
-            href="#home"
-            className="block px-3 py-2 text-indigo-600 hover:text-indigo-800 font-medium"
+      {/* Hàng dưới - Navigation */}
+      <nav className="flex justify-center items-center space-x-4 py-4 border-t border-gray-100 bg-gradient-to-r from-gray-50 to-white">
+        {navItems.map((item) => (
+          <Link
+            key={item.id}
+            to={
+              item.id === "home" ? "/" : `/${item.id}` // đường dẫn khớp với route bạn định nghĩa
+            }
+            onClick={() => setActiveNav(item.id)}
+            className={`px-6 py-3 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105
+        ${
+          activeNav === item.id
+            ? "bg-[#545A9D] text-white shadow-lg"
+            : "text-gray-600 hover:bg-[#545A9D] hover:text-white hover:shadow-md"
+        }`}
           >
-            Home
-          </a>
-          <a
-            href="#shop"
-            className="block px-3 py-2 text-indigo-600 hover:text-indigo-800 font-medium"
-          >
-            Shop
-          </a>
-          <a
-            href="#about"
-            className="block px-3 py-2 text-indigo-600 hover:text-indigo-800 font-medium"
-          >
-            About
-          </a>
-          <a
-            href="#contact"
-            className="block px-3 py-2 text-indigo-600 hover:text-indigo-800 font-medium"
-          >
-            Contact
-          </a>
-          <a
-            href="#location"
-            className="block px-3 py-2 text-indigo-600 hover:text-indigo-800 font-medium"
-          >
-            Location
-          </a>
-        </div>
-      </div>
+            {item.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

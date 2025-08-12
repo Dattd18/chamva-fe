@@ -1,126 +1,88 @@
 import { Facebook, Youtube } from "lucide-react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logoFooter.png";
 import { Link } from "react-router-dom";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Phone,
+  MapPin,
+  MessageCircle,
+  Menu,
+  Search,
+  ShoppingCart,
+  User,
+} from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gray-50 border-t border-gray-200 py-4 sm:py-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Mobile Layout - Stacked */}
-        <div className="block sm:hidden">
-          {/* Logo centered on mobile */}
-          <div className="flex justify-center">
-            <Link to="/">
-              <img alt="logo" className="w-16 h-16 cursor-pointer -mb-10" src={logo} />
-            </Link>
-          </div>
-          
-          {/* Copyright and Social Media in row */}
-          <div className="flex items-center justify-between">
-            <div className="flex flex-col space-y-1 text-xs text-indigo-600">
-              <span>Chamva.com.vn</span>
-              <a
-                href="#wsp"
-                className="text-indigo-600 hover:text-indigo-800 underline font-medium transition-colors duration-200"
-              >
-                WSP.VN
-              </a>
-            </div>
-            
-            {/* Social Media Icons */}
-            <div className="flex items-center space-x-2">
-              <Link
-                to="#"
-                className="w-8 h-8 bg-blue-600 hover:bg-blue-700 rounded flex items-center justify-center transition-colors duration-200"
-              >
-                <Facebook size={16} className="text-white" />
-              </Link>
-              <Link
-                to="#"
-                className="w-8 h-8 bg-red-600 hover:bg-red-700 rounded flex items-center justify-center transition-colors duration-200"
-              >
-                <Youtube size={16} className="text-white" />
+    <footer className="w-full py-4 sm:py-6"
+    style={{ backgroundColor: "#545A9D", color: "white" }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Logo CHAMVA */}
+          <div className="flex flex-col items-center md:items-start">
+            <div className="w-full h-ful rounded-lg flex items-center justify-center mb-2">
+              <Link to="/" className="flex items-center space-x-2">
+                <img
+                  src={logo}
+                  alt="Logo"
+                  className="w-32 h-32 object-contain cursor-pointer "
+                />
               </Link>
             </div>
           </div>
-        </div>
 
-        {/* Tablet Layout - Stacked but more spacious */}
-        <div className="hidden sm:block md:hidden">
-          {/* Logo centered on tablet */}
-          <div className="flex justify-center mb-4">
-            <Link to="/">
-              <img alt="logo" className="w-18 h-18 cursor-pointer" src={logo} />
-            </Link>
-          </div>
-          
-          {/* Copyright and Social Media in row */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2 text-sm text-indigo-600">
-              <span>Chamva.com.vn</span>
-              <a
-                href="#wsp"
-                className="text-indigo-600 hover:text-indigo-800 underline font-medium transition-colors duration-200"
-              >
-                WSP.VN
-              </a>
-            </div>
-            
-            {/* Social Media Icons */}
-            <div className="flex items-center space-x-3 ml-10">
-              <Link
-                to="#"
-                className="w-9 h-9 bg-blue-600 hover:bg-blue-700 rounded flex items-center justify-center transition-colors duration-200"
-              >
-                <Facebook size={18} className="text-white" />
-              </Link>
-              <Link
-                to="#"
-                className="w-9 h-9 bg-red-600 hover:bg-red-700 rounded flex items-center justify-center transition-colors duration-200"
-              >
-                <Youtube size={18} className="text-white" />
-              </Link>
+          {/* Thông tin liên hệ */}
+          <div>
+            <h4 className="font-semibold mb-4 text-lg">Thông tin liên hệ</h4>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-start space-x-2">
+                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+                <span>
+                  Địa chỉ: 111 Tổ 4, Ấp Phụm Soai, Châu Phong, Tân Châu, An
+                  Giang
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <span>Hotline: 02963 824 465 - 0903 321 046</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MessageCircle className="w-4 h-4 flex-shrink-0" />
+                <span>chamva@gmail.com</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Desktop Layout - Original horizontal layout */}
-        <div className="hidden md:flex md:items-center md:justify-between">
-          {/* Copyright Text */}
-          <div className="flex items-center space-x-2 text-sm text-indigo-600">
-            <span>Chamva.com.vn</span>
-            <a
-              href="#wsp"
-              className="text-indigo-600 hover:text-indigo-800 underline font-medium transition-colors duration-200"
-            >
-              WSP.VN
-            </a>
+          {/* Mạng Xã Hội */}
+          <div>
+            <h4 className="font-semibold mb-4 text-lg">Mạng Xã Hội</h4>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                  <Facebook className="w-4 h-4 flex-shrink-0" />
+                </div>
+                <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
+                  <Youtube className="w-4 h-4 flex-shrink-0" />
+                </div>
+              </div>
+              <p className="text-sm font-medium">Fanpage</p>
+            </div>
           </div>
 
-          {/* Center Logo */}
-          <div className="flex items-center">
-            <Link to="/">
-              <img alt="logo" className="w-20 h-20 cursor-pointer ml-96" src={logo} />
-            </Link>
-          </div>
-
-          {/* Social Media Icons */}
-          <div className="flex items-center space-x-3">
-            <Link
-              to="#"
-              className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded flex items-center justify-center transition-colors duration-200"
-            >
-              <Facebook size={20} className="text-white" />
-            </Link>
-            <Link
-              to="#"
-              className="w-10 h-10 bg-red-600 hover:bg-red-700 rounded flex items-center justify-center transition-colors duration-200"
-            >
-              <Youtube size={20} className="text-white" />
-            </Link>
+          {/* Chính Sách */}
+          <div>
+            <h4 className="font-semibold mb-4 text-lg">Chính Sách</h4>
+            <div className="space-y-2 text-sm">
+              <p>• Chính sách bảo mật</p>
+              <p>• FAQ</p>
+              <p>• Chính sách Bảo Hành & Đổi Trả</p>
+              <p>• Chính sách giao hàng toàn quốc</p>
+            </div>
           </div>
         </div>
       </div>
+      F
     </footer>
   );
 }
