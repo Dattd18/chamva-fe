@@ -4,6 +4,8 @@ import Home from "./page/Home";
 import About from "./page/About";
 import Contact from "./page/Contact";
 import Location from "./page/Location";
+import ProductsByCategory from "./page/ListProduct";
+
 function App() {
   return (
     <div>
@@ -12,6 +14,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
            <Route path="/location" element={<Location />} />
+          <Route path="/shop" element={<ProductsByCategory />} />
         </Routes>
     </div>
   );
