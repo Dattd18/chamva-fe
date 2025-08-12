@@ -99,7 +99,7 @@ const ProductsByCategory = () => {
                     <img
                       src={product.images[0]}
                       alt={product.name}
-                      className="w-full h-56 object-cover"
+                      className="w-full h-72 object-cover"
                     />
 
                     {/* Overlay icon */}

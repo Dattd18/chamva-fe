@@ -8,6 +8,7 @@ import ChamvaLoginPage from "./page/Login";
 import ProductsByCategory from "./page/ListProduct";
 import ProductDetail from "./page/ProductDetail";
 import Cart from "./page/Cart";
+import Process from "./page/Process";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/products" element={<ProductsByCategory />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/check-out" element={<Process />} />
       </Routes>
     </div>
   );

@@ -51,12 +51,14 @@ const ProductDetail = () => {
         {/* Bố cục chính */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Ảnh sản phẩm */}
-          <div>
-            <img
-              src={mainImage}
-              alt={product.name}
-              className="w-full h-[250px] sm:h-[350px] lg:h-[800px] object-contain rounded-lg bg-gray-100"
-            />
+          <div className="space-y-4 h-full">
+            <div className="w-full h-[500px] sm:h-[600px] lg:h-[700px] bg-gray-100 rounded-lg overflow-hidden">
+              <img
+                src={mainImage}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div className="flex gap-2 mt-4">
               {product.images.map((img, idx) => (
                 <img
@@ -125,7 +127,7 @@ const ProductDetail = () => {
         </div>
 
         {/* Các sản phẩm khác */}
-        <h2 className="text-center text-lg font-bold text-indigo-700 mt-12 mb-6">
+        <h2 className="text-center text-lg font-bold text-indigo-700 mt-28 mb-6">
           Các Sản Phẩm Khác
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">

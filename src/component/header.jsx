@@ -1,20 +1,40 @@
 import React, { useState } from "react";
 import { Search, ShoppingCart, User } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo1.png";
 import { useCart } from "../page/CartContext";
 
 export default function Header() {
-  const [activeNav, setActiveNav] = useState("home");
+  const location = useLocation(); // Hook để lấy đường dẫn hiện tại
   const [searchValue, setSearchValue] = useState("");
   const { cartItems } = useCart();
 
   const navItems = [
-    { id: "home", label: "TRANG CHỦ" },
-    { id: "products", label: "SẢN PHẨM" },
-    { id: "contact", label: "LIÊN HỆ" },
-    { id: "about", label: "VỀ CHÚNG TÔI" },
+    { id: "home", label: "TRANG CHỦ", path: "/" },
+    { id: "products", label: "SẢN PHẨM", path: "/products" },
+    { id: "contact", label: "LIÊN HỆ", path: "/contact" },
+    { id: "about", label: "VỀ CHÚNG TÔI", path: "/about" },
   ];
+
+  // Function để xác định nav item nào đang active dựa trên pathname
+  const getActiveNav = () => {
+    const currentPath = location.pathname;
+    
+    // Tìm nav item khớp với đường dẫn hiện tại
+    const activeItem = navItems.find(item => {
+      if (item.path === "/" && currentPath === "/") {
+        return true; // Trang chủ chính xác
+      }
+      if (item.path !== "/" && currentPath.startsWith(item.path)) {
+        return true; // Các trang khác (bao gồm sub-routes)
+      }
+      return false;
+    });
+
+    return activeItem ? activeItem.id : "home"; // Mặc định về home nếu không tìm thấy
+  };
+
+  const activeNav = getActiveNav();
 
   return (
     <header className="w-full bg-white shadow-lg relative z-50">
@@ -56,9 +76,11 @@ export default function Header() {
               className="p-3 rounded-full transition-all duration-300 hover:bg-indigo-50 hover:shadow-md transform hover:scale-110 relative group text-[#545A9D]"
             >
               <ShoppingCart size={22} />
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                {cartItems.length}
-              </span>
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartItems.length}
+                </span>
+              )}
               <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 Giỏ hàng
               </div>
@@ -92,10 +114,7 @@ export default function Header() {
         {navItems.map((item) => (
           <Link
             key={item.id}
-            to={
-              item.id === "home" ? "/" : `/${item.id}` // đường dẫn khớp với route bạn định nghĩa
-            }
-            onClick={() => setActiveNav(item.id)}
+            to={item.path}
             className={`px-6 py-3 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105
         ${
           activeNav === item.id
