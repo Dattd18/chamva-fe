@@ -18,10 +18,10 @@ import spk4 from "../assets/spk4.png";
 
 
 import cuonchi1 from "../assets/cuonchi1.jpg";
-import cuonchi2 from "../assets/cuonchi2.jpg";
-import cuonchi3 from "../assets/cuonchi3.jpg";
-import cuonchi4 from "../assets/cuonchi4.jpg";
-import cuonchi5 from "../assets/cuonchi5.jpg";
+import cuonchi2 from "../assets/cuonchi2.JPG";
+import cuonchi3 from "../assets/cuonchi3.JPG";
+import cuonchi4 from "../assets/cuonchi4.JPG";
+import cuonchi5 from "../assets/cuonchi5.JPG";
 import cuonchi6 from "../assets/cuonchi6.jpg";
 import cuonchi7 from "../assets/cuonchi7.jpg";
 
