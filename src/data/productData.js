@@ -1,4 +1,4 @@
-import khan1 from "../assets/khan1.jpg";
+import khan1 from "../assets/khan1.JPG";
 import khan4 from "../assets/khan4.jpg";
 import khan2 from "../assets/khan2.jpg";
 import khan3 from "../assets/khan3.jpg";
