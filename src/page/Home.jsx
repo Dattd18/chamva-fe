@@ -184,45 +184,85 @@ const ChamvaWebsite = () => {
       </section>
 
       {/* About Section with Image */}
-      <section className="py-16">
+      <section className="py-8 md:py-16">
         <div
-          className="max-w-7xl mx-auto px-4 h-[650px]"
+          className="w-full mx-auto px-4 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]"
           style={{
             backgroundImage: `url(${bg4})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center h-full">
             <div></div>
             {/* Right side - Content */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8">
-              <h2 className="text-3xl font-light text-gray-800 mb-6">
+            <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 sm:p-6 md:p-8 mx-2 sm:mx-0">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-800 mb-4 md:mb-6 text-center lg:text-left">
                 VỀ CHÚNG TÔI
               </h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p>
-                  Ở làng Chăm ven sông An Giang, dệt thổ cẩm từng là nghề của
-                  hầu hết các gia đình. Tiếng khung cửi, sắc chỉ rực rỡ và những
-                  hoa văn cổ truyền là một phần nhịp sống. Nhưng theo thời gian,
-                  nghề dệt thưa dần. Cái khó, cái nhọc khiến nhiều người bỏ
-                  khung cửi.
-                </p>
-                <p>
-                  Cuối cùng, cả làng chỉ còn lại cơ sở của chú – người gắn bó
-                  với nghề hơn nửa đời. Đã có lúc chú muốn dừng, nhưng ký ức về
-                  ông bà, cha mẹ và truyền thống hơn 100 năm vẫn thôi thúc. Nghề
-                  này là máu thịt, là niềm tự hào, không thể để mất. Chú bắt tay
-                  phục dựng cơ sở, khôi phục từng hoa văn, giữ nguyên kỹ thuật
-                  xưa nhưng cải tiến để phù hợp với thời nay. Không chỉ để bán
-                  vải, chú muốn nghề sống lại, để con cháu sau này còn biết, còn
-                  tiếp nối.
-                </p>
-                <p>
-                  Chamva được hình thành từ ý chí đó – tôn vinh tinh hoa dệt thổ
-                  cẩm Chăm, gìn giữ di sản, và đưa nó bước vào đời sống hiện
-                  đại. Mỗi sản phẩm là kết nối giữa bàn tay, ký ức và tương lai
-                </p>
+              <div className="space-y-3 md:space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+                {/* Mobile version - Short */}
+                <div className="block sm:hidden">
+                  <p>
+                    Ở làng Chăm ven sông An Giang, dệt thổ cẩm từng là nghề
+                    truyền thống. Theo thời gian, nghề dệt thưa dần do khó khăn.
+                  </p>
+                  <p>
+                    Chỉ còn cơ sở của chú gắn bó với nghề hơn nửa đời. Với ký ức
+                    về truyền thống hơn 100 năm, chú phục dựng cơ sở, khôi phục
+                    hoa văn để nghề sống lại.
+                  </p>
+                  <p>
+                    Chamva ra đời để tôn vinh dệt thổ cẩm Chăm, gìn giữ di sản
+                    và đưa vào đời sống hiện đại.
+                  </p>
+                </div>
+
+                {/* Tablet version - Medium */}
+                <div className="hidden sm:block md:hidden">
+                  <p>
+                    Ở làng Chăm ven sông An Giang, dệt thổ cẩm từng là nghề của
+                    hầu hết gia đình. Tiếng khung cửi, sắc chỉ rực rỡ là nhịp
+                    sống. Theo thời gian, nghề dệt thưa dần vì khó khăn.
+                  </p>
+                  <p>
+                    Cả làng chỉ còn cơ sở của chú – người gắn bó nghề hơn nửa
+                    đời. Với ký ức về truyền thống hơn 100 năm, chú phục dựng cơ
+                    sở, khôi phục hoa văn, giữ kỹ thuật xưa nhưng cải tiến phù
+                    hợp thời nay.
+                  </p>
+                  <p>
+                    Chamva hình thành để tôn vinh tinh hoa dệt thổ cẩm Chăm, gìn
+                    giữ di sản và đưa vào đời sống hiện đại.
+                  </p>
+                </div>
+
+                {/* Desktop version - Full */}
+                <div className="hidden md:block">
+                  <p>
+                    Ở làng Chăm ven sông An Giang, dệt thổ cẩm từng là nghề của
+                    hầu hết các gia đình. Tiếng khung cửi, sắc chỉ rực rỡ và
+                    những hoa văn cổ truyền là một phần nhịp sống. Nhưng theo
+                    thời gian, nghề dệt thưa dần. Cái khó, cái nhọc khiến nhiều
+                    người bỏ khung cửi.
+                  </p>
+                  <p>
+                    Cuối cùng, cả làng chỉ còn lại cơ sở của chú – người gắn bó
+                    với nghề hơn nửa đời. Đã có lúc chú muốn dừng, nhưng ký ức
+                    về ông bà, cha mẹ và truyền thống hơn 100 năm vẫn thôi thúc.
+                    Nghề này là máu thịt, là niềm tự hào, không thể để mất. Chú
+                    bắt tay phục dựng cơ sở, khôi phục từng hoa văn, giữ nguyên
+                    kỹ thuật xưa nhưng cải tiến để phù hợp với thời nay. Không
+                    chỉ để bán vải, chú muốn nghề sống lại, để con cháu sau này
+                    còn biết, còn tiếp nối.
+                  </p>
+                  <p>
+                    Chamva được hình thành từ ý chí đó – tôn vinh tinh hoa dệt
+                    thổ cẩm Chăm, gìn giữ di sản, và đưa nó bước vào đời sống
+                    hiện đại. Mỗi sản phẩm là kết nối giữa bàn tay, ký ức và
+                    tương lai
+                  </p>
+                </div>
               </div>
             </div>
           </div>
